@@ -9,5 +9,18 @@
 #'   is 0 (no positive predictions), the function should return NA.
 #' @export
 calculate_precision <- function(actual, predicted) {
-  # Implementation goes here
+  if (length(actual) != length(predicted)) {
+    stop("Actual and predicted vectors must be the same length.")
+  }
+  
+  true_positives <- sum(actual == 1 & predicted == 1, na.rm = TRUE)
+  false_positives <- sum(actual == 0 & predicted == 1, na.rm = TRUE)
+  
+  denominator <- true_positives + false_positives
+  
+  if (denominator == 0) {
+    return(NA_real_)
+  }
+  
+  return(true_positives / denominator)
 }

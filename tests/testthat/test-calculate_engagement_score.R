@@ -1,0 +1,18 @@
+library(testthat)
+
+source("../../R/calculate_engagement_score.R")
+
+test_that("calculate_engagement_score works for simple, edge, and error cases", {
+  
+  # Simple Expected: (10 * 0.2) + (2 * 0.5) - (1 * 0.3) = 2.0 + 1.0 - 0.3 = 2.7
+  expect_equal(calculate_engagement_score(logins = 10, purchases = 2, support_tickets = 1), 2.7)
+  
+  # Edge Cases
+  # Negative calculation: (0 * 0.2) + (0 * 0.5) - (10 * 0.3) = -3.0 -> should floor to 0
+  expect_equal(calculate_engagement_score(logins = 0, purchases = 0, support_tickets = 10), 0)
+  
+  expect_equal(calculate_engagement_score(numeric(0), numeric(0), numeric(0)), numeric(0))
+  
+  # Error Cases
+  expect_error(calculate_engagement_score(logins = c(1, 2), purchases = 1, support_tickets = 1)) # Length mismatch
+})

@@ -9,5 +9,17 @@
 #'   replaced with the upper quantile value.
 #' @export
 cap_outliers <- function(x, lower_quantile = 0.05, upper_quantile = 0.95) {
-  # Implementation goes here
+  if (!is.numeric(x)) {
+    stop("Input vector must be numeric.")
+  }
+  if (lower_quantile >= upper_quantile) {
+    stop("Lower quantile must be strictly less than upper quantile.")
+  }
+  
+  bounds <- quantile(x, probs = c(lower_quantile, upper_quantile), na.rm = TRUE)
+  
+  x_capped <- ifelse(x < bounds[1], bounds[1], x)
+  x_capped <- ifelse(x_capped > bounds[2], bounds[2], x_capped)
+  
+  return(x_capped)
 }

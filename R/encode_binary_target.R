@@ -6,5 +6,11 @@
 #' @return A numeric vector of 1s and 0s.
 #' @export
 encode_binary_target <- function(x, positive_class = "Yes") {
-  # Implementation goes here
+  if (!positive_class %in% x) {
+    warning(paste("The positive class", positive_class, "was not found in the vector."))
+  }
+  
+  # ifelse naturally returns NA if the input is NA, which is exactly what we want
+  encoded <- ifelse(x == positive_class, 1, 0)
+  return(encoded)
 }

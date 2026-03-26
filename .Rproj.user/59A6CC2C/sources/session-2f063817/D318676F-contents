@@ -1,6 +1,6 @@
-#library(testthat)
+library(testthat)
 
-#source("../../R/calculate_engagement_score.R")
+source("../../R/calculate_engagement_score.R")
 
 test_that("calculate_engagement_score works for simple, edge, and error cases", {
   

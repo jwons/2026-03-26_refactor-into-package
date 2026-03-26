@@ -1,0 +1,26 @@
+{
+    "id": "4099D7BE",
+    "path": "~/project/tests/testthat/test-calculate_engagement_score.R",
+    "project_path": "tests/testthat/test-calculate_engagement_score.R",
+    "type": "r_source",
+    "hash": "2148784331",
+    "contents": "",
+    "dirty": false,
+    "created": 1774557677956.0,
+    "source_on_save": false,
+    "relative_order": 5,
+    "properties": {
+        "source_window_id": "",
+        "Source": "Source",
+        "cursorPosition": "0,1",
+        "scrollLine": "0"
+    },
+    "folds": "",
+    "lastKnownWriteTime": 1774557683,
+    "encoding": "UTF-8",
+    "collab_server": "",
+    "source_window": "",
+    "last_content_update": 1774557683981,
+    "read_only": false,
+    "read_only_alternatives": []
+}
